@@ -1,0 +1,150 @@
+<div class="container" style="margin-top: 20px;" *ngIf="this.pops.showpop">
+    <form class="row g-3" [formGroup]="addressForm" (ngSubmit)="update()">
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Location Id" formControlName="locationId"
+                    [readonly]="true"
+                    [ngClass]="{'is-invalid': submitted && f['locationId'].invalid && f['locationId'].errors || f['locationId'].touched && f['locationId'].invalid}">
+                <div class="div1" *ngIf="(f['locationId'].touched || submitted) && f['locationId'].errors?.['required']"
+                    style="color: red;">location id is required</div>
+            </div>
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Location Display Name"
+                    formControlName="locationName"
+                    [ngClass]="{'is-invalid': submitted && f['locationId'].invalid && f['locationName'].errors || f['locationName'].touched && f['locationName'].invalid}">
+                <div *ngIf="(f['locationName'].touched || submitted) && f['locationName'].errors?.['required']"
+                    style="color: red;">Location name is required
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <h5 style="margin-top:30px; color:black;">Address Details</h5>
+            </div>
+
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Search Address...">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Street" formControlName="StreetName"
+                        [ngClass]="{'is-invalid': submitted && f['StreetName'].invalid && f['StreetName'].errors || f['StreetName'].touched && f['StreetName'].invalid}">
+                    <div *ngIf="(f['StreetName'].touched || submitted) && f['StreetName'].errors?.['required']"
+                        style="color: red;">Street name is required
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="City" formControlName="CityName"
+                        [ngClass]="{'is-invalid': submitted && f['CityName'].invalid && f['CityName'].errors || f['CityName'].touched && f['CityName'].invalid}">
+                    <div *ngIf="(f['CityName'].touched || submitted) && f['CityName'].errors?.['required']"
+                        style="color: red;">City name is required
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="" class="form-control" placeholder="State" formControlName="StateName"
+                        [ngClass]="{'is-invalid': submitted && f['StateName'].invalid && f['StateName'].errors || f['StateName'].touched && f['StateName'].invalid}">
+                    <div *ngIf="(f['StateName'].touched || submitted) && f['StateName'].errors?.['required']"
+                        style="color: red;">State name is required
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <input type="text" class="form-control" placeholder="Country" formControlName="CountryName"
+                        [ngClass]="{'is-invalid': submitted && f['CountryName'].invalid && f['CountryName'].errors || f['CountryName'].touched && f['CountryName'].invalid}">
+                    <div *ngIf="(f['CountryName'].touched || submitted) && f['CountryName'].errors?.['required']"
+                        style="color: red;">Country name is required
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+
+                <input type="tel" class="form-control" placeholder="Postal Code" formControlName="PostalCode"
+                    [ngClass]="{'is-invalid': submitted && f['PostalCode'].invalid && f['PostalCode'].errors || f['PostalCode'].touched && f['PostalCode'].invalid}">
+                <div *ngIf="(f['PostalCode'].touched || submitted) && f['PostalCode'].errors?.['required']"
+                    style="color: red;">Postal code is required
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-6">
+                    <button type="reset" (click)="onReset()" style="margin-left:170px;"
+                        class="btn btn-warning btn-sm">Cancel</button>
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" style="margin-right: 170px;" class="btn btn-primary btn-sm">Update</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Location Contact title"
+                    formControlName="locationTitle"
+                    [ngClass]="{'is-invalid': submitted && f['locationTitle'].invalid && f['locationTitle'].errors || f['locationTitle'].touched && f['locationTitle'].invalid}">
+                <div *ngIf="(f['locationTitle'].touched || submitted) && f['locationTitle'].errors?.['required']"
+                    style="color: red;">Location title is required
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Location Contact Name"
+                    formControlName="locationContact"
+                    [ngClass]="{'is-invalid': submitted && f['locationContact'].invalid && f['locationContact'].errors || f['locationContact'].touched && f['locationContact'].invalid}">
+                <div *ngIf="(f['locationContact'].touched || submitted) && f['locationContact'].errors?.['required']"
+                    style="color: red;">Location Contact is required
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="dropdown-item form-select" style="border: black 1px solid; padding:4%"
+                        formControlName="country_code"
+                        [ngClass]="{'is-invalid': submitted && f['country_code'].invalid && f['country_code'].errors || f['country_code'].touched && f['country_code'].invalid}">
+                        <option selected disabled value="">Select country</option>
+                        <option value="+86(China)">China</option>
+                        <option value="+20(Egypt)">Egypt</option>
+                        <option value="+33(France)">France</option>
+                        <option value="+49(Germany)">Germany</option>
+                        <option value="+91(India)">India</option>
+                        <option value="+92(Pakistan)">Pakistan</option>
+                        <option value="+44(UK)">UK</option>
+                        <option value="+1(USA)">USA</option>
+                    </select>
+                    <div *ngIf="(f['country_code'].touched || submitted) && f['country_code'].errors?.['required']"
+                        style="color: red;">Country code is required
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <input type="tel" class="form-control" formControlName="LocationNumber"
+                        placeholder="Location Contact Number"
+                        [ngClass]="{'is-invalid': submitted && f['LocationNumber'].invalid && f['LocationNumber'].errors || f['LocationNumber'].touched && f['LocationNumber'].invalid}">
+                    <div *ngIf="(f['LocationNumber'].touched || submitted) && f['LocationNumber'].errors?.['required']"
+                        style="color: red;">Location number is required
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Location Contact Email"
+                    formControlName="locationEmail"
+                    [ngClass]="{'is-invalid': submitted && f['locationEmail'].invalid && f['locationEmail'].errors || f['locationEmail'].touched && f['locationEmail'].invalid}">
+                <div *ngIf="(f['locationEmail'].touched || submitted) && f['locationEmail'].errors?.['required']"
+                    style="color: red;">Location email is required
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>

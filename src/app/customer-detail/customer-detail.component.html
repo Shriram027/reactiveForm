@@ -1,0 +1,43 @@
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>S.no.</th>
+      <!-- <th>Location Id</th>
+        <th>Location Name</th> -->
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Postal code</th>
+      <!-- <th>Location Title</th> -->
+      <th>Location Contact</th>
+      <th>Country code</th>
+      <th>Location Number</th>
+      <th>location Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dt of data ; index as i">
+      <td>{{i+1}}</td>
+      <!-- <td>{{dt.locationId}}</td>
+        <td>{{dt.locationName}}</td> -->
+      <td>{{dt.StreetName}}</td>
+      <td>{{dt.CityName}}</td>
+      <td>{{dt.StateName}}</td>
+      <td>{{dt.CountryName}}</td>
+      <td>{{dt.PostalCode}}</td>
+      <!-- <td>{{dt.locationTitle}}</td> -->
+      <td>{{dt.locationContact}}</td>
+      <td>{{dt.country_code}}</td>
+      <td>{{dt.LocationNumber}}</td>
+      <td>{{dt.locationEmail}}</td>
+      <td>
+        <span><i class="bi bi-pencil-fill" (click)="edit(dt)"></i> &nbsp; <i class="bi bi-trash3"
+            (click)="remove(dt)"></i></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <app-popup *ngIf="pops.showpop === true" [element]="selectedUser" (updatedElement)="update($event)"></app-popup>

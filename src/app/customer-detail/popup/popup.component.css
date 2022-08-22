@@ -1,0 +1,26 @@
+.col-md-6{
+    margin-top: 20px;
+}
+
+.col-md-12{
+    margin-top: 20px;
+
+}
+
+.col-md-4{
+    margin-top: 20px;
+
+}
+
+.col-md-8{
+    margin-top: 20px;
+
+}
+
+input{
+    border: black 1px solid;
+}
+
+.form-control.ng-touched .ng-invalid{
+    border: red 1px solid;
+}

@@ -1,0 +1,11 @@
+/* a:hover i {
+    transform: scale(1.5);
+} */
+
+.bi-pencil-fill:hover {
+    background-color: blue;
+}
+
+.bi-trash3:hover {
+    background-color: red;
+}
